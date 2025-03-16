@@ -1,0 +1,251 @@
+Feature: Verify Widget Addition
+
+  @WidgetAddition @Regression
+  Scenario Outline: 5_ Verify Asset widgets addition
+    Given I am on the login page
+    When I login with username regulatoryreporting@focusync.com and password $Admin#1
+    And I add widget <widgetTitle> from <widgetModule>
+    And I verify the widget on the dashboard page <widgetTitle>
+
+    Examples:
+      | widgetTitle                                                | widgetModule                          |
+      | Yield Curve                                                | Assets                                |
+      | Demo Report                                                | Multidimensional Data Model           |
+      | Assets and Liability as per reset date bucket              | Assets                                |
+      | Asset and liability as per Interest Reset Date             | Assets                                |
+      | Repricing Gap Split By Interest Reset Type                 | Assets                                |
+      | Asset and liability as per Maturity Date                   | Assets                                |
+#      | Net Interest Income – Sensitivity analysis                 | Assets                                |
+#      | EVE Summary                                                | Assets                                |
+#      | Composition of Total Income                                | Assets                                |
+#      | EVE Shock Scenerio- USD                                 m   | Assets                                |
+#      | EVE Shock Scenerio - GBP                                   | Assets                                |
+#      | EVE Shock Scenerio - EUR                                   | Assets                                |
+#      | Consolidated EVE                                           | Assets                                |
+#      | Insensitive Asset v/s Rate Sensitive Asset                 | Assets                                |
+#      | Insensitive Liability v/s Rate Sensitive Liability         | Assets                                |
+#      | Report Last year                                           | Multidimensional Data Model           |
+#      | Join 2                                                     | Multidimensional Data Model (Monthly) |
+#      | Actual Vs Budget                                           | KPI                                   |
+#      | Join_new_1                                                 | Multidimensional Data Model           |
+#      | Interest Income – Sensitivity analysis                     | Assets                                |
+#      | Average Transaction Count                                  | KPI                                   |
+#      | Accounts by Statuses                                       | KPI                                   |
+#      | Country asset analysis                                     | Assets                                |
+#      | Size Asset Concentration                                   | Assets                                |
+#      | Liquidity KPIs List                                        | Liquidity                             |
+#      | Daily Interest Expense                                     | Expense                               |
+#      | Asset Join                                                 | Assets                                |
+#      | Counterparty wise [demo]                                   | Analysis                              |
+#      | Deposit by Industry                                        | Liabilities                           |
+#      | Monthly Income and Expense                                 | CRM                                   |
+#      | Volume by Transaction Type (In Last 12 Months)             | Assets                                |
+#      | Asset By CQS                                               | Assets                                |
+#      | Customer Wise Collateral                                   | Assets                                |
+#      | Expired Limit                                              | Assets                                |
+#      | Potential Leads by Low Product Utilization                 | CRM                                   |
+#      | Deposit By Products                                        | Liabilities                           |
+#      | Collateral Limit                                           | Liabilities                           |
+#      | Monthly Deposit, Loan and Advances                         | CRM                                   |
+#      | Asset By Counterparty Type                                 | Assets                                |
+#      | RM Performance                                             | KPI                                   |
+#      | Impaired Assets Analysis                                   | Analysis                              |
+#      | Top 10 Depositors (CASA)                                   | Liabilities                           |
+#      | Monthly Product Analysis                                   | Liabilities                           |
+#      | Branch wise Fees & Commission                              | Analysis                              |
+#      | Branch wise Operating Expense                              | Expense                               |
+#      | Performing & Non Performing Accounts                       | KPI                                   |
+#      | Top 10 Depositors (Chart)                                  | Liabilities                           |
+#      | Monthly Advances                                           | Analysis                              |
+#      | Income & Expenses by Counterparty Type                     | Income                                |
+#      | Top 10 Borrowers                                           | Assets                                |
+#      | Monthly Deposit by Branch                                  | Liabilities                           |
+#      | Customer Relationship                                      | Liabilities                           |
+#      | Sector Limit                                               | Liabilities                           |
+#      | Industry Limit                                             | Liabilities                           |
+#      | Statistics                                                 | Liabilities                           |
+#      | RM - Customer Relationship                                 | Liabilities                           |
+#      | Country Wise Balance                                       | Analysis                              |
+#      | Account Type Report                                        | Analysis                              |
+#      | For last Quarter report                                    | Analysis                              |
+#      | Customer Balance                                           | Liabilities                           |
+#      | NSFR                                                       | KPI                                   |
+#      | Debt Instrument                                            | Assets                                |
+#      | Account Summary                                            | KPI                                   |
+#      | Monthly Interest                                           | Income                                |
+#      | Asset By Currency                                          | Assets                                |
+#      | Exception Summary                                          | KPI                                   |
+#      | Loan & Advances by Products                                | Assets                                |
+#      | Survival Day                                               | KPI                                   |
+#      | Net Loans to Deposit                                       | KPI                                   |
+#      | Customer Detail                                            | Liabilities                           |
+#      | Transaction by Customers                                   | CRM                                   |
+#      | High Churnrate Customers                                   | CRM                                   |
+#      | Loan & Advances by Industry                                | Assets                                |
+#      | Accounts compare to Total Accounts                         | KPI                                   |
+#      | Daily Exchange Rate                                        | Analysis                              |
+#      | CP Monthly                                                 | Multidimensional Data Model           |
+#      | Regulatory Report Status                                   | KPI                                   |
+#      | Customer Summary                                           | KPI                                   |
+#      | Monthly Movement  (Other Assets)                           | Assets                                |
+#      | Monthly Movement By RM                                     | Liabilities                           |
+#      | Liquidity Management                                       | Analysis                              |
+#      | Leverage Ratio                                             | KPI                                   |
+#      | Net Interest Income v/s Other Income                       | Expense                               |
+#      | Liquidity Gap PRA                                          | Liquidity                             |
+#      | Operating Cost to Operating Income                         | KPI                                   |
+#      | Monthly Deposit of Top 10 Accounts                         | Liabilities                           |
+#      | Liquid assets to deposit-borrowing ratio                   | KPI                                   |
+#      | Large Withdrawals                                          | Liabilities                           |
+#      | KPIs List                                                  | KPI                                   |
+#      | Total Outflow by Type                                      | Liquidity                             |
+#      | Branch wise Performance Target vs Actual (Loan)            | KPI                                   |
+#      | Monthly Deposit by Customer (Top 10)                       | Liabilities                           |
+#      | Turner Ratio (%)                                           | KPI                                   |
+#      | Return on Assets                                           | Liabilities                           |
+#      | Loan and Advances - Analysis                               | Analysis                              |
+#      | Top 10 Loan                                                | Assets                                |
+#      | Return - C01.00                                            | KPI                                   |
+#      | Deposit by Country of Risk (Top 5)                         | Liabilities                           |
+#      | RM - Assets by Country of Risk                             | Assets                                |
+#      | NSFR                                                       | KPI                                   |
+#      | Deposit by Counterparty Type                               | Liabilities                           |
+#      | Potential Leads                                            | CRM                                   |
+#      | Target Vs Actual                                           | KPI                                   |
+#      | Products by RM - Branch                                    | KPI                                   |
+#      | Branch wise Operating Income                               | Income                                |
+#      | Balance Sheet YTD                                          | Analysis                              |
+#      | Bank Performance-KPI                                       | KPI                                   |
+#      | Financial Instrument Limit                                 | Liabilities                           |
+#      | Expense By Country of Risk                                 | Expense                               |
+#      | Top 5 Users by No. of Transaction                          | Analysis                              |
+#      | Loans by Customers (Maximum)                               | Assets                                |
+#      | Deposits                                                   | Liabilities                           |
+#      | ECL Analysis                                               | Analysis                              |
+#      | Base Report                                                | Multidimensional Data Model           |
+#      | Exception Report                                           | KPI                                   |
+#      | Monthly Movement (Other Liabilities)                       | Liabilities                           |
+#      | Deposit Allocation By Risk Rating                          | Liabilities                           |
+#      | Asset and deposit by Counterparty                          | Multidimensional Data Model           |
+#      | Customer with Deposit above 5M                             | Liabilities                           |
+#      | Customer with Loan & Advances above 5M                     | Assets                                |
+#      | Account Type wise Assets and Deposits for Current Year     | Multidimensional Data Model (Monthly) |
+#      | LCR                                                        | KPI                                   |
+#      | Loan & Advances by Collateral                              | Assets                                |
+#      | Return on Equity                                           | KPI                                   |
+#      | Customer Risk Profile                                      | Analysis                              |
+#      | Income by Country of Residence                             | Income                                |
+#      | Income by Industry                                         | Income                                |
+#      | Return on Assets                                           | KPI                                   |
+#      | Branch Wise Product Analysis                               | Analysis                              |
+#      | Customer Analysis                                          | CRM                                   |
+#      | Aggregate Country Exposure                                 | Assets                                |
+#      | Excess over Limit                                          | Assets                                |
+#      | Unsatisfied Customers                                      | CRM                                   |
+#      | Lead Status                                                | CRM                                   |
+#      | Impaired Asset Analysis                                    | Analysis                              |
+#      | Funded Liquidity Inflow (PRA110)                           | Assets                                |
+#      | Counterparty wise data                                     | Multidimensional Data Model           |
+#      | Collateral Detail                                          | Assets                                |
+#      | Collateral Allocation by Location                          | Assets                                |
+#      | Email List                                                 | Liabilities                           |
+#      | Country Limit                                              | Liabilities                           |
+#      | Interest Risk Rate                                         | KPI                                   |
+#      | Account Summary Last 12 Month Opened/Close                 | KPI                                   |
+#      | Market Risk Stressed on Quality                            | Liabilities                           |
+#      | Qualified Leads                                            | CRM                                   |
+#      | Disqualified Leads                                         | CRM                                   |
+#      | Branch wise Loan & Advances                                | Analysis                              |
+#      | Product Analysis by Branch                                 | Analysis                              |
+#      | Productwise Total                                          | CRM                                   |
+#      | Monthly Deposit by Products                                | Liabilities                           |
+#      | Branch wise Operating Income                               | Income                                |
+#      | Upcoming Limit Expiry                                      | Liabilities                           |
+#      | Top 10 Depositors (Grid)                                   | Liabilities                           |
+#      | Expense by Country                                         | Expense                               |
+#      | Monthly Movement                                           | Liabilities                           |
+#      | Cumulated net funding gap vs Cumulated Counterbalancing    | Liquidity                             |
+#      | Average Transaction by Users                               | KPI                                   |
+#      | Temporary Overdraft (TOD)                                  | Assets                                |
+#      | Processing Exceptions                                      | KPI                                   |
+#      | Loan Maturity                                              | Assets                                |
+#      | Cost To Income Ratio                                       | KPI                                   |
+#      | Exposure by Collateral Type                                | Assets                                |
+#      | Cash Collateralised Loan                                   | Assets                                |
+#      | Unsecured Loan                                             | Assets                                |
+#      | Branch wise Deposit                                        | Analysis                              |
+#      | Intraday Liquidity (Major Currency)                        | Liquidity                             |
+#      | Funded Liquidity Inflow PRA 110                            | Assets                                |
+#      | Branch wise Loan & Advances                                | Assets                                |
+#      | Intraday Consolidated                                      | Liquidity                             |
+#      | Trial Balance                                              | KPI                                   |
+#      | Deposits Liquidity Scope                                   | Liabilities                           |
+#      | Balance by Counterparty - Last Year & Last Fin Year        | Multidimensional Data Model           |
+#      | Deposits By CounterParty Type                              | Liabilities                           |
+#      | Deposits LCR Scope                                         | Liabilities                           |
+#      | Assets By Country                                          | Assets                                |
+#      | Deposits Non Operational Deposits (1.1.4)                  | Liabilities                           |
+#      | Funded Liquidity Inflow (30 Days)                          | Assets                                |
+#      | PNL                                                        | Analysis                              |
+#      | LCR Trend                                                  | Liquidity                             |
+#      | Debt Securities                                            | Assets                                |
+#      | Deposits By Products                                       | Liabilities                           |
+#      | Interest Rate greater outerjoin                            | Multidimensional Data Model (Monthly) |
+#      | Branch wise Operating Expense                              | Expense                               |
+#      | ECL Analysis                                               | Analysis                              |
+#      | Account Detail                                             | Liabilities                           |
+#      | Join_1                                                     | Multidimensional Data Model (Monthly) |
+#      | All Leads                                                  | CRM                                   |
+#      | Country Wise Amount                                        | Assets                                |
+#      | Daily Transactions                                         | Analysis                              |
+#      | LCR C76                                                    | Liquidity                             |
+#      | Liquidity Outflow                                          | Liabilities                           |
+#      | Leads by High Account Balance                              | CRM                                   |
+#      | Loan and Advances as per LTV                               | Assets                                |
+#      | Insurance Expired                                          | Assets                                |
+#      | Daily Interest Income                                      | Income                                |
+#      | Assets By Products                                         | Assets                                |
+#      | Loan And Advances as per Maturity                          | Assets                                |
+#      | Dashboard Batch Processing Summary                         | KPI                                   |
+#      | Financial Statement Summary                                | KPI                                   |
+#      | Risk Weighted Assets (RWA)                                 | KPI                                   |
+#      | Loans to Total Assets                                      | KPI                                   |
+#      | HQLA                                                       | Assets                                |
+#      | Report Trail                                               | Assets                                |
+#      | Deposit Monthly Movement                                   | Liabilities                           |
+#      | Cash Collateral                                            | Expense                               |
+#      | Trial Balance                                              | Analysis                              |
+#      | Risk Weighted Assets Widget                                | KPI                                   |
+#      | Loan and Advances - Analysis                               | Analysis                              |
+#      | Country Allocation Chart                                   | Multidimensional Data Model (Monthly) |
+#      | Reporting Variance Trend                                   | KPI                                   |
+#      | Deposit By Industry                                        | Liabilities                           |
+#      | High Risk Customer                                         | Multidimensional Data Model (Monthly) |
+#      | Consolidated Throughput                                    | Liquidity                             |
+#      | Counterparty wise customers                                | Multidimensional Data Model           |
+#      | Consolidated Throughput (Major Currency)                   | Liquidity                             |
+#      | CTE1 Capital Ratio                                         | KPI                                   |
+#      | Uncommitted OverDrafts Comparison                          | Multidimensional Data Model           |
+#      | Demo report 2                                              | Multidimensional Data Model (Monthly) |
+#      | ECL Stage1 Analysis                                        | Multidimensional Data Model (Monthly) |
+#      | Asset By Product                                           | Assets                                |
+#      | RWA By Exposure Class                                      | Analysis                              |
+#      | RWA By Industry                                            | Analysis                              |
+#      | RWA By Risk Weight                                         | Analysis                              |
+#      | Collateral Management                                      | KPI                                   |
+#      | Predictive Liquidity Coverage Ratio (PLCR)                 | Liabilities                           |
+#      | Counterparty assets of Jun and July                        | Assets                                |
+#      | Batch Processing Summary                                   | KPI                                   |
+#      | Risk Weighted Assets by Exposure Type                      | Assets                                |
+#      | Large Exposure v/s Regular (RWA)                           | KPI                                   |
+#      | RWA by Type of Risk                                        | KPI                                   |
+#      | Capital Requirements                                       | Analysis                              |
+#      | KPIs                                                       | Liquidity                             |
+#      | Large Exposure                                             | KPI                                   |
+#      | EVE Shock Scenario - GBP                                   | Assets                                |
+#      | EVE Trend Analysis                                         | Assets                                |
+#      | EVE                                                        | Assets                                |
+#      | EVE Summary                                                | Assets                                |
+#      | EVE Shock Scenario - EUR                                   | Assets                                |
+#      | Asset and liability v/s Rate Sensitive Asset and Liability | Assets                                |
+#      | Repricing Gap Split By Interest Reset Type                 | Assets                                |
